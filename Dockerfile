@@ -2,9 +2,7 @@ FROM ruby:3.2.2
 RUN apt-get update -qq && apt-get  install -y \
     sudo \
     vim
-RUN mkdir /myapp
 WORKDIR /myapp
-ADD Gemfile /myapp/Gemfile
-ADD Gemfile.lock /myapp/Gemfile.lock
+ADD Gemfile Gemfile.lock /myapp/
 RUN bundle install
 ADD . /myapp
